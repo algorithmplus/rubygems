@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'users/new'
-  devise_for :models
   resources :contracts
   get 'home/index'
   root 'home#index'
