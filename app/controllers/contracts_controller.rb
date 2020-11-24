@@ -3,8 +3,13 @@ class ContractsController < ApplicationController
 
   # GET /contracts
   # GET /contracts.json
+  
   def index
-    @contracts = Contract.all
+    if params[:title]
+      @contracts = Contract.where('title ILIKE ?', "%#{params[:title]}%") #case-insensitive
+    else
+      @contracts = Contract.all
+    end
   end
 
   # GET /contracts/1
@@ -25,7 +30,7 @@ class ContractsController < ApplicationController
   # POST /contracts.json
   def create
     @contract = Contract.new(contract_params)
-
+    @contract.user = current_user
     respond_to do |format|
       if @contract.save
         format.html { redirect_to @contract, notice: 'Contract was successfully created.' }
@@ -60,6 +65,8 @@ class ContractsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

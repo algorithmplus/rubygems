@@ -5,6 +5,7 @@
     %tr
       %th Title
       %th Description
+      %th user
       %th
       %th
       %th
@@ -14,6 +15,7 @@
       %tr
         %td= contract.title
         %td= contract.description
+        %td= contract.user
         %td= link_to 'Show', contract
         %td= link_to 'Edit', edit_contract_path(contract)
         %td= link_to 'Destroy', contract, method: :delete, data: { confirm: 'Are you sure?' }
