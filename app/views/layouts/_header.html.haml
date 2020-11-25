@@ -1,5 +1,5 @@
 %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-  %a.navbar-brand{:href => "#"} Build a Contract
+  %a.navbar-brand{:href => "/"} Build a contract
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
@@ -12,7 +12,12 @@
         %li.nav-item{class: "#{'active font-weight-bold' if current_page?(contracts_path)}"}
           = link_to contracts_path, class: 'nav-link' do
             .fa.fa-book
-            contracts
+            Contracts
+        %li.nav-item{class: "#{'active font-weight-bold' if current_page?(new_contract_path)}"}
+          = link_to new_contract_path, class: 'nav-link' do
+            .fa.fa-plus
+            New Contract
+
       .form-inline.my-2.my-lg-0
         = form_tag(contracts_path, method: :get) do
           .input-group

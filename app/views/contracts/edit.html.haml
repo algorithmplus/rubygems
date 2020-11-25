@@ -1,7 +1,10 @@
-%h1 Editing contract
+.card
+  .card-header
+    %h1 Editing contract
+  .card-body
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Show', @contract
-\|
-= link_to 'Back', contracts_path
+  = link_to 'Show', @contract
+  \|
+  = link_to 'Back', contracts_path

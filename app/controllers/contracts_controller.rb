@@ -78,3 +78,6 @@ class ContractsController < ApplicationController
       params.require(:contract).permit(:title, :description)
     end
 end
+
+
+ 

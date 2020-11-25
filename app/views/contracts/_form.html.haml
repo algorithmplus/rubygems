@@ -1,4 +1,5 @@
 -# frozen_string_literal: true
+  .container
 = simple_form_for(@contract) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
@@ -6,6 +7,10 @@
   .form-inputs
     = f.input :title
     = f.input :description
-
+    = f.rich_text_area :description
+    
   .form-actions
     = f.button :submit
+    
+    
+

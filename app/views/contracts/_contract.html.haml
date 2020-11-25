@@ -1,0 +1,19 @@
+.card
+  .card-header
+    .fa.fa-book
+    = link_to contract.title, contracts_path(contract)
+  .card-body
+    = contract.description
+  .card-footer
+    .far.fa-clock
+    = contract.created_at.strftime('%d-%b-%Y')
+    .row
+    = contract.user
+  .card-footer
+    = link_to 'Show', contract, class: 'btn btn-sm btn-primary'
+    = link_to 'Edit', edit_contract_path(contract), class: 'btn btn-sm btn-warning'
+    = link_to 'Destroy', contract, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
+        
+        
+
+        

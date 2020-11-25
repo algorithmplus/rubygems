@@ -1,12 +1,7 @@
-%p#notice= notice
+= link_to 'Contracts', contracts_path
 
+\/
 %p
-  %b Title:
-  = @contract.title
-%p
-  %b Description:
-  = @contract.description
+= link_to @contract.title, contract_path(@contract)
 
-= link_to 'Edit', edit_contract_path(@contract)
-\|
-= link_to 'Back', contracts_path
+= render 'contracts/contract', contract: @contract
