@@ -6,8 +6,9 @@
 
   .form-inputs
     = f.input :title
-    = f.input :description
     = f.rich_text_area :description
+    = f.input :estimated_price
+    = f.input :price
     
   .form-actions
     = f.button :submit

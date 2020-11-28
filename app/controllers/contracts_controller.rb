@@ -75,7 +75,7 @@ class ContractsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contract_params
-      params.require(:contract).permit(:title, :description)
+      params.require(:contract).permit(:title, :description, :estimated_price, :price)
     end
 end
 

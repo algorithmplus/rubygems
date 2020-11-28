@@ -1,5 +1,5 @@
 class Contract < ApplicationRecord
-     validates :title, presence: true
+     validates :title, :estimated_price, :price, presence: true
      validates :description, presence: true, length: { :minimum => 5 }
      belongs_to :user
      def to_s
