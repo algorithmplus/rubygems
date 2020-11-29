@@ -5,12 +5,8 @@ class ContractsController < ApplicationController
   # GET /contracts.json
   
   def index
-    if params[:title]
-      @contracts = Contract.where('title ILIKE ?', "%#{params[:title]}%") #case-insensitive
-    else
-      @q = Contract.ransack(params[:q])
-      @contracts = @q.result.includes(:user)
-    end
+    @ransack_contracts = Contract.ransack(params[:contracts_search], search_key: :contracts_search)
+    @contracts = @ransack_contracts.result.includes(:user)
   end
 
   # GET /contracts/1
