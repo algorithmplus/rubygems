@@ -6,6 +6,8 @@ class Contract < ApplicationRecord
      title
      end
      has_rich_text :description
+     
+     
 end
 
 
