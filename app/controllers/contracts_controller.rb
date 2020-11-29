@@ -9,7 +9,7 @@ class ContractsController < ApplicationController
       @contracts = Contract.where('title ILIKE ?', "%#{params[:title]}%") #case-insensitive
     else
       @q = Contract.ransack(params[:q])
-      @contract = @q.result.includes(:user)
+      @contracts = @q.result.includes(:user)
     end
   end
 
