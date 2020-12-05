@@ -30,6 +30,8 @@ gem 'simple_form'
 
 gem 'ransack'
 
+gem 'public_activity'
+
 gem 'devise'
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
