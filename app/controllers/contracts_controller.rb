@@ -8,25 +8,26 @@ class ContractsController < ApplicationController
     @ransack_contracts = Contract.ransack(params[:contracts_search], search_key: :contracts_search)
     @contracts = @ransack_contracts.result.includes(:user)
   end
-
-  # GET /contracts/1
-  # GET /contracts/1.json
+  
   def show
   end
 
   # GET /contracts/new
   def new
     @contract = Contract.new
+    authorize @contract
   end
 
   # GET /contracts/1/edit
   def edit
+    authorize @contract
   end
 
   # POST /contracts
   # POST /contracts.json
   def create
     @contract = Contract.new(contract_params)
+    authorize @contract
     @contract.user = current_user
     respond_to do |format|
       if @contract.save
@@ -42,6 +43,7 @@ class ContractsController < ApplicationController
   # PATCH/PUT /contracts/1
   # PATCH/PUT /contracts/1.json
   def update
+    authorize @contract
     respond_to do |format|
       if @contract.update(contract_params)
         format.html { redirect_to @contract, notice: 'Contract was successfully updated.' }
@@ -56,6 +58,7 @@ class ContractsController < ApplicationController
   # DELETE /contracts/1
   # DELETE /contracts/1.json
   def destroy
+    authorize @contract
     @contract.destroy
     respond_to do |format|
       format.html { redirect_to contracts_url, notice: 'Contract was successfully destroyed.' }
